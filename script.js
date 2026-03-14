@@ -1,5 +1,6 @@
 // create resize button
 const resizeButton = document.createElement('button');
+resizeButton.classList.add('resize-button');
 resizeButton.textContent = 'Resize Grid';
 document.body.appendChild(resizeButton);
 
