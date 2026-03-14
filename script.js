@@ -1,4 +1,3 @@
-
 // create resize button
 const resizeButton = document.createElement('button');
 resizeButton.textContent = 'Resize Grid';
@@ -20,13 +19,20 @@ function createGrid(size) {
             const cell = document.createElement('div');
             cell.classList.add('square');
             cell.addEventListener('mouseover', () => {
-                cell.style.backgroundColor = 'black';
+                // Set a random color on each hover
+                cell.style.backgroundColor = getRandomColor();
             });
             row.appendChild(cell);
         }
         container.appendChild(row);
     }
 }
+
+function getRandomColor() {
+    // Return a random color in hex format (e.g. #3fa2c1)
+    return `#${Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0')}`;
+}
+
 
 resizeButton.addEventListener('click', () => {
     let newSize = parseInt(prompt('Enter the number of squares per side (up to 100):'));
